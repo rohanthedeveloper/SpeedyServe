@@ -1,4 +1,4 @@
-package com.example.speedyserve.auth.Components
+package com.example.speedyserve.Components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -37,7 +37,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.speedyserve.Navigation.SpeedyServeScreens
 import com.example.speedyserve.R
-import com.example.speedyserve.auth.Components.RoundedTextField
+import com.example.speedyserve.Components.RoundedTextField
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable

@@ -47,6 +47,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.speedyserve.Components.BottomNavigationBar
 import com.example.speedyserve.R
 import com.example.speedyserve.data.Canteen
 import com.example.speedyserve.data.canteenList
@@ -113,82 +114,7 @@ fun HomeTopBar(modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-fun BottomNavigationBar() {
-    NavigationBar(
-        containerColor = Color(0xFFFF9800), // Light blue color
-        contentColor = Color(0xFF000000),
-        modifier = Modifier
-            .clip(RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)) // Apply rounded corners to top-left and top-right
-            .fillMaxWidth()
-            .background(color = Color(0xFFE3F2FD))// White content color
-    ) {
-        // Home Button
-        NavigationBarItem(
-            label = {
-                Text(
-                    "Home",
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-            },
-            selected = false,
-            icon = {
-                Icon(
-                    imageVector = Icons.Rounded.Home,
-                    contentDescription = "Rounded Home Icon",
-                    modifier = Modifier
-                        .height(30.dp)
-                        .width(30.dp)
-                )
-            },
-            onClick = { /* Navigate to Home */ }
-        )
 
-        NavigationBarItem(
-            label = {
-                Text(
-                    "Cart",
-                   // fontFamily = Montserrat,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-            },
-            selected = false,
-            icon = {
-                Icon(
-                    imageVector = Icons.Filled.ShoppingCart,
-                    contentDescription = "History Icon",
-                    modifier = Modifier
-                        .height(30.dp)
-                        .width(30.dp)
-                )
-            },
-            onClick = { /* Navigate to History */ }
-        )
-        NavigationBarItem(
-            label = {
-                Text(
-                    "Profile",
-                    // fontFamily = Montserrat,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-            },
-            selected = false,
-            icon = {
-                Icon(
-                    imageVector = Icons.Filled.Person,
-                    contentDescription = "History Icon",
-                    modifier = Modifier
-                        .height(30.dp)
-                        .width(30.dp)
-                )
-            },
-            onClick = { /* Navigate to History */ }
-        )
-    }
-}
 @Composable
 fun CanteenList(canteens: List<Canteen>) {
     LazyColumn(

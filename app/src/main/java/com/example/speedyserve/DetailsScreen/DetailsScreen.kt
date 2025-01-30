@@ -48,6 +48,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.speedyserve.Components.BottomNavigationBar
 import com.example.speedyserve.HomeScreen.CanteenCard
 import com.example.speedyserve.HomeScreen.CanteenList
 import com.example.speedyserve.HomeScreen.HomeTopBar
@@ -73,7 +74,7 @@ fun DetailsScreen(){
     Scaffold(
         modifier = Modifier.background(color = Color(0xFFECEFF1)),
         topBar = { DetailsTopBar() },
-        bottomBar = { com.example.speedyserve.HomeScreen.BottomNavigationBar() },
+        bottomBar = { BottomNavigationBar() },
     ) { paddingValues ->
         Surface(color = Color(0xFFECEFF1)) {
             Column(
@@ -126,7 +127,6 @@ fun DishCard(name: String,
         modifier = Modifier.padding(20.dp).fillMaxWidth()
     ) {
         Column {
-            // Dish Image
             Box {
                 Image(
                     painter = painterResource(id = R.drawable.paneer_image), // Replace with actual image resource
@@ -138,7 +138,6 @@ fun DishCard(name: String,
                     contentScale = ContentScale.Crop
                 )
 
-                // Price Tag
                 Text(
                     text = "Rs${price}",
                     fontSize = 14.sp,
@@ -163,8 +162,6 @@ fun DishCard(name: String,
                    )
 
                    Spacer(modifier = Modifier.height(4.dp))
-
-                   // Rating
                    Row(modifier = Modifier.padding(horizontal = 12.dp)) {
                        repeat(rating) {
                            Text(text = "★", color = Color(0xFFFFD700), fontSize = 16.sp)
@@ -211,82 +208,7 @@ fun DetailsTopBar(modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-fun BottomNavigationBar() {
-    NavigationBar(
-        containerColor = Color(0xFFFF9800), // Light blue color
-        contentColor = Color(0xFF000000),
-        modifier = Modifier
-            .clip(RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)) // Apply rounded corners to top-left and top-right
-            .fillMaxWidth()
-            .background(color = Color(0xFFE3F2FD))// White content color
-    ) {
-        // Home Button
-        NavigationBarItem(
-            label = {
-                Text(
-                    "Home",
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-            },
-            selected = false,
-            icon = {
-                Icon(
-                    imageVector = Icons.Rounded.Home,
-                    contentDescription = "Rounded Home Icon",
-                    modifier = Modifier
-                        .height(30.dp)
-                        .width(30.dp)
-                )
-            },
-            onClick = { /* Navigate to Home */ }
-        )
 
-        NavigationBarItem(
-            label = {
-                Text(
-                    "Cart",
-                    // fontFamily = Montserrat,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-            },
-            selected = false,
-            icon = {
-                Icon(
-                    imageVector = Icons.Filled.ShoppingCart,
-                    contentDescription = "History Icon",
-                    modifier = Modifier
-                        .height(30.dp)
-                        .width(30.dp)
-                )
-            },
-            onClick = { /* Navigate to History */ }
-        )
-        NavigationBarItem(
-            label = {
-                Text(
-                    "Profile",
-                    // fontFamily = Montserrat,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-            },
-            selected = false,
-            icon = {
-                Icon(
-                    imageVector = Icons.Filled.Person,
-                    contentDescription = "History Icon",
-                    modifier = Modifier
-                        .height(30.dp)
-                        .width(30.dp)
-                )
-            },
-            onClick = { /* Navigate to History */ }
-        )
-    }
-}
 
 @Preview
 @Composable
